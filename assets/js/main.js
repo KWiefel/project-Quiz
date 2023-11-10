@@ -61,6 +61,7 @@ let data = [
   },
 ];
 
+// Alle Fragen ausgeben
 const output = document.body.querySelector("#content");
 
 const showContent = () => {
@@ -75,6 +76,7 @@ const showContent = () => {
 
     for (let choice of dataSet.choice) {
       let btn = document.createElement("button");
+      let btnReset = document.createElement("button");
       btn.textContent = choice;
       output.append(btn);
     }
@@ -82,6 +84,7 @@ const showContent = () => {
 };
 showContent();
 
+// Lösung überprüfen
 const btnGroup = document.body.querySelectorAll("button");
 
 for (let btn of btnGroup) {
@@ -89,7 +92,7 @@ for (let btn of btnGroup) {
     for (dataSet of data) {
       let answer = dataSet.answer;
 
-      if (btn.textContent == answer) {
+      if (btn.textContent == answer.toString()) {
         btn.style.background = "Green";
         break;
       } else {
